@@ -131,6 +131,15 @@ export interface RevisionChange {
 
 export type Change = WipChange | RevisionChange;
 
+export interface CreatePatchState {
+	title?: string;
+	description?: string;
+	changes: Record<string, Change>;
+	creationError?: string;
+	visibility: DraftVisibility;
+	userSelections?: DraftUserSelection[];
+}
+
 export interface State extends WebviewState {
 	mode: Mode;
 
@@ -141,14 +150,7 @@ export interface State extends WebviewState {
 	};
 
 	draft?: DraftDetails;
-	create?: {
-		title?: string;
-		description?: string;
-		changes: Record<string, Change>;
-		creationError?: string;
-		visibility: DraftVisibility;
-		userSelections?: DraftUserSelection[];
-	};
+	create?: CreatePatchState;
 }
 
 export type ShowCommitDetailsViewCommandArgs = string[];

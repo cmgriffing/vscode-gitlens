@@ -3294,11 +3294,13 @@
 						"default": null,
 						"enum": [
 							"openai",
-							"anthropic"
+							"anthropic",
+							"custom"
 						],
 						"enumDescriptions": [
 							"OpenAI",
-							"Anthropic"
+							"Anthropic",
+							"Custom"
 						],
 						"markdownDescription": "Specifies the AI provider to use for GitLens' experimental AI features",
 						"scope": "window",
@@ -3347,6 +3349,32 @@
 						],
 						"default": null,
 						"markdownDescription": "Specifies a custom URL to use for access to an OpenAI model via Azure. Azure URLs should be in the following format: https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/chat/completions?api-version={api-version}",
+						"scope": "window",
+						"order": 102
+					},
+					"gitlens.ai.experimental.custom.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": null,
+						"enum": [
+							"custom"
+						],
+						"enumDescriptions": [
+							"Custom"
+						],
+						"markdownDescription": "Specifies the Custom model to use for GitLens' experimental AI features",
+						"scope": "window",
+						"order": 101
+					},
+					"gitlens.ai.experimental.custom.url": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": null,
+						"markdownDescription": "Specifies a custom URL to use for access to a custom AI model.",
 						"scope": "window",
 						"order": 102
 					},

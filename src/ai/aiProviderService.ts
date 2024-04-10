@@ -13,6 +13,8 @@ import { configuration } from '../system/configuration';
 import type { Storage } from '../system/storage';
 import type { AnthropicModels } from './anthropicProvider';
 import { AnthropicProvider } from './anthropicProvider';
+import type { CustomModels } from './customProvider';
+import { CustomProvider } from './customProvider';
 import type { OpenAIModels } from './openaiProvider';
 import { OpenAIProvider } from './openaiProvider';
 
@@ -172,6 +174,8 @@ export class AIProviderService implements Disposable {
 
 			if (providerId === 'anthropic') {
 				this._provider = new AnthropicProvider(this.container);
+			} else if (providerId === 'custom') {
+				this._provider = new CustomProvider(this.container);
 			} else {
 				this._provider = new OpenAIProvider(this.container);
 				if (providerId !== 'openai') {
@@ -218,7 +222,7 @@ async function confirmAIProviderToS(provider: AIProvider, storage: Storage): Pro
 	return false;
 }
 
-export function getMaxCharacters(model: OpenAIModels | AnthropicModels, outputLength: number): number {
+export function getMaxCharacters(model: OpenAIModels | AnthropicModels | CustomModels, outputLength: number): number {
 	const tokensPerCharacter = 3.1;
 
 	let tokens;

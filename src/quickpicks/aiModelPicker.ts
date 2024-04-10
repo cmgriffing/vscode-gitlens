@@ -33,6 +33,8 @@ export async function showAIModelPicker(provider?: AIProviders): Promise<ModelQu
 		{ label: 'Anthropic', description: 'Claude 2.1', provider: 'anthropic', model: 'claude-2.1' },
 		{ label: 'Anthropic', description: 'Claude 2.0', provider: 'anthropic', model: 'claude-2' },
 		{ label: 'Anthropic', description: 'Claude Instant', provider: 'anthropic', model: 'claude-instant-1' },
+		{ label: 'Custom', kind: QuickPickItemKind.Separator },
+		{ label: 'Custom', description: 'Custom Model', provider: 'custom', model: 'custom' },
 	];
 
 	if (provider != null) {

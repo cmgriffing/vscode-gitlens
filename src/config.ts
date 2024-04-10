@@ -1,3 +1,4 @@
+import type { CustomModels } from 'src/ai/customProvider';
 import type { AnthropicModels } from './ai/anthropicProvider';
 import type { OpenAIModels } from './ai/openaiProvider';
 import type { AIProviders } from './constants';
@@ -18,6 +19,10 @@ export interface Config {
 			};
 			readonly anthropic: {
 				readonly model: AnthropicModels | null;
+			};
+			readonly custom: {
+				readonly model: CustomModels | null;
+				readonly url: string | null;
 			};
 		};
 	};
